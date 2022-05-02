@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "url": {
+    "searchPatterns": [
+      "env:url",
+      "file:/localdev-config.json:$.url"
+    ]
+  },
+  "apikey": {
+    "searchPatterns": [
+      "env:apikey",
+      "file:/localdev-config.json:$.apikey"
+    ]
+  },
+  "host": {
+    "searchPatterns": [
+      "env:host",
+      "file:/localdev-config.json:$.host"
+    ]
+  },
+  "port": {
+    "searchPatterns": [
+      "env:port",
+      "file:/localdev-config.json:$.port"
+    ]
+  },
+  "username": {
+    "searchPatterns": [
+      "env:username",
+      "file:/localdev-config.json:$.username"
+    ]
+  },
+  "password": {
+    "searchPatterns": [
+      "env:password",
+      "file:/localdev-config.json:$.password"
+    ]
+  },
+  "dbname": {
+    "searchPatterns": [
+      "env:dbname",
+      "file:/localdev-config.json:$.dbname"
+    ]
+  }
+}

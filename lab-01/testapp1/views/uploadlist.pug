@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  h1= title
+  h1 uploadlist.pug -  отображение списка загруженных файлов
+  p Всего загружено: #{larr.length} файлов
+
+  //table.table.striped
+  table(style='width:100%', border='3')
+    tr
+      th Имя файла
+      th Удалить
+      th Скачать
+    each item in larr
+      tr
+        td(scope="row") 
+          p #{item.filename}
+        td(scope="row") 
+          //a(target='_blank' rel='noopener' href='http://localhost:3000/uploader') Удалить
+          a( href="javascript:void(0);" onclick= item.delete  title="удалиить файл" ) Удалить
+          
+        td(scope="row")
+          a(target='_blank' rel='noopener' href= item.download ) Скачать
+        //td(scope="row")= item.rss_url
+        //td(scope="row")= item.rss_dt
+        //td(scope="row")= item.description
+        //td(scope="row")= JSON.stringify(item)
+        //td(scope="row")= "tttt"
+        //td(scope="row")= "bbbb"
+  script(src='js/api.js')

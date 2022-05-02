@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1  Сервер повернув помилку 
+  h2  КОД: #{errobj.error.status}
+  h2  Повідомлення: #{errobj.message}
+  
+  pre #{errobj.error.stack}

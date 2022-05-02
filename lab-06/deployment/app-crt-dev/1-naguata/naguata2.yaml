@@ -1,0 +1,157 @@
+apiVersion: v1
+items:
+- apiVersion: build.openshift.io/v1
+  kind: BuildConfig
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewApp
+    creationTimestamp: null
+    labels:
+      app: naguata
+    name: naguata
+  spec:
+    nodeSelector: null
+    output:
+      to:
+        kind: ImageStreamTag
+        name: naguata:latest
+    postCommit: {}
+    resources: {}
+    source:
+      git:
+        ref: tz_000001
+        uri: http://ZZ000C@int-ifc-mb10-as.pravex.ua/Node.JS_PROJECTS/pvx-naguata.git
+      sourceSecret:
+        name: sinc-gitlab-pvx-1
+      type: Git
+    strategy:
+      sourceStrategy:
+        from:
+          kind: ImageStreamTag
+          name: nodejs:10
+          namespace: openshift
+      type: Source
+    triggers:
+    - github:
+        secret: akyPSegHPJhEANnIv4xO
+      type: GitHub
+    - generic:
+        secret: 7zW3GacRnPvl_Mj8qF4n
+      type: Generic
+    - type: ConfigChange
+    - imageChange: {}
+      type: ImageChange
+  status:
+    lastVersion: 0
+- apiVersion: apps.openshift.io/v1
+  kind: DeploymentConfig
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewApp
+    creationTimestamp: null
+    labels:
+      app: naguata
+    name: naguata
+  spec:
+    replicas: 1
+    selector:
+      app: naguata
+      deploymentconfig: naguata
+    strategy:
+      resources: {}
+    template:
+      metadata:
+        annotations:
+          openshift.io/generated-by: OpenShiftNewApp
+        creationTimestamp: null
+        labels:
+          app: naguata
+          deploymentconfig: naguata
+      spec:
+        containers:
+        - env:
+          - name: DBC_HOST
+            value: db-db-bnkdem-dev.apps.okd4-cl-01.openshift.pravex.ua
+          - name: DBC_NAME
+            value: bnkdb-dev
+          - name: DBC_PORT
+            value: "80"
+          - name: DBC_PROT
+            value: http
+          - name: DBC_PSW
+            value: qq
+          - name: DBC_USERNAME
+            value: devadm
+          - name: DEBUG_PORT
+            value: "5858"
+          - name: DEV_MODE
+            value: "false"
+          - name: NODE_ENV
+            value: production
+          - name: NPM_RUN
+            value: start
+          - name: SHAPPDB_SERVICE_PORT
+            value: "8080"
+          image: naguata:latest
+          name: naguata
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+    test: false
+    triggers:
+    - type: ConfigChange
+    - imageChangeParams:
+        automatic: true
+        containerNames:
+        - naguata
+        from:
+          kind: ImageStreamTag
+          name: naguata:latest
+      type: ImageChange
+  status:
+    availableReplicas: 0
+    latestVersion: 0
+    observedGeneration: 0
+    replicas: 0
+    unavailableReplicas: 0
+    updatedReplicas: 0
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewApp
+    creationTimestamp: null
+    labels:
+      app: naguata
+    name: naguata
+  spec:
+    ports:
+    - name: 8080-tcp
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      app: naguata
+      deploymentconfig: naguata
+  status:
+    loadBalancer: {}
+- apiVersion: route.openshift.io/v1
+  kind: Route
+  metadata:
+    creationTimestamp: null
+    labels:
+      app: naguata
+    name: naguata-bnkdem-dev.apps.okd4-cl-01.openshift.pravex.ua
+  spec:
+    host: naguata-bnkdem-dev.apps.okd4-cl-01.openshift.pravex.ua
+    port:
+      targetPort: 8080
+    to:
+      kind: ""
+      name: naguata
+      weight: null
+  status:
+    ingress: null
+kind: List
+metadata: {}

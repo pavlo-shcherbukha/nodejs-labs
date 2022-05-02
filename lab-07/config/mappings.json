@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "url": {
+    "searchPatterns": [
+      "env:url",
+      "file:/localdev-config.json:$.url"
+    ]
+  },
+  "apikey": {
+    "searchPatterns": [
+      "env:apikey",
+      "file:/localdev-config.json:$.apikey"
+    ]
+  },
+  "host": {
+    "searchPatterns": [
+      "env:host",
+      "file:/localdev-config.json:$.host"
+    ]
+  },
+  "port": {
+    "searchPatterns": [
+      "env:port",
+      "file:/localdev-config.json:$.port"
+    ]
+  },
+  "username": {
+    "searchPatterns": [
+      "env:username",
+      "file:/localdev-config.json:$.username"
+    ]
+  },
+  "password": {
+    "searchPatterns": [
+      "env:password",
+      "file:/localdev-config.json:$.password"
+    ]
+  },
+  "dbname": {
+    "searchPatterns": [
+      "env:dbname",
+      "file:/localdev-config.json:$.dbname"
+    ]
+  },
+  "mq_qm": {
+    "searchPatterns": [
+      "env:mq_qm",
+      "file:/localdev-config.json:$.mq_qm"
+    ]
+  },
+  "mq_host": {
+    "searchPatterns": [
+      "env:mq_host",
+      "file:/localdev-config.json:$.mq_host"
+    ]
+  },
+  "mq_port": {
+    "searchPatterns": [
+      "env:mq_port",
+      "file:/localdev-config.json:$.mq_port"
+    ]
+  },
+  "mq_channel": {
+    "searchPatterns": [
+      "env:mq_channel",
+      "file:/localdev-config.json:$.mq_channel"
+    ]
+  },
+  "mq_username": {
+    "searchPatterns": [
+      "env:mq_username",
+      "file:/localdev-config.json:$.mq_username"
+    ]
+  },
+  "mq_apikey": {
+    "searchPatterns": [
+      "env:mq_apikey",
+      "file:/localdev-config.json:$.mq_apikey"
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  h1 Помилка в роботі
+  h2 Код  помилки: #{r_error.error}
+  h2 Опис помилки: #{r_error.error_description}
+  pre   Додатковий текст  #{r_error.stack}

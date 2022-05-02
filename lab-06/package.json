@@ -1,0 +1,74 @@
+{
+  "name": "bankidp",
+  "version": "1.0.0",
+  "description": "bankidp bank id service",
+  "private": true,
+  "engines": {
+    "node": "^8.11.1"
+  },
+  "config": {
+    "entrypoint": "server/server.js"
+  },
+  "scripts": {
+    "start": "node server/server.js",
+    "debug": "node --inspect=0.0.0.0:5858 server/server.js",
+    "debug:brk": "node --inspect-brk=0.0.0.0:5858 server/server.js",
+    "debug:legacy": "node --debug=0.0.0.0:5858 server/server.js",
+    "test": "nyc mocha --exit",
+    "dev": "nodemon server/server.js",
+    "xdev": "node --inspect-brk=0.0.0.0:5858 ./node_modules/mocha/bin/_mocha --timeout 999999 --colors ${T_FILE}"
+  },
+  "nodemonConfig": {
+    "env": {
+      "NODE_HEAPDUMP_OPTIONS": "nosignal"
+    }
+  },
+  "dependencies": {
+    "@cloudant/cloudant": "^4.2.1",
+    "@cloudnative/health-connect": "^2.1.0",
+    "appmetrics-dash": "^4.1.0",
+    "appmetrics-prometheus": "^2.0.0",
+    "appmetrics-zipkin": "^1.1.1",
+    "async": "^3.2.0",
+    "axios": "^0.19.2",
+    "body-parser": "^1.18.3",
+    "connect-busboy": "0.0.2",
+    "cookie-parser": "^1.4.5",
+    "couchdb-expression": "^1.5.4",
+    "crypto": "^1.0.1",
+    "express": "^4.16.4",
+    "express-fileupload": "^1.2.0",
+    "express-session": "^1.17.1",
+    "for-async": "^1.0.1",
+    "fs": "0.0.1-security",
+    "fs-extra": "^9.0.1",
+    "ibm-cloud-env": "^0",
+    "log4js": "^4.0.2",
+    "moment": "^2.27.0",
+    "morgan": "^1.10.0",
+    "nano": "^8.2.3",
+    "node-couchdb": "^1.3.0",
+    "node-fetch": "^2.6.0",
+    "oauth20-provider": "^0.6.0",
+    "pug": "^2.0.4",
+    "query-string": "^6.13.1",
+    "sleep": "^6.3.0",
+    "supertest": "^4.0.2",
+    "swagger-tools": "^0.10.4",
+    "swagger-ui-express": "^4.1.2",
+    "to-utf-8": "^1.3.0",
+    "uuid": "^3.3.3",
+    "winston": "^3.3.3",
+    "zipkin": "^0.22.0",
+    "zipkin-axios": "^0.2.1",
+    "zipkin-instrumentation-express": "^0.22.0",
+    "zipkin-transport-http": "^0.22.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.0.0",
+    "nock": "^11.7.0",
+    "nodemon": "^1.12.1",
+    "nyc": "^13.3.0"
+  }
+}

@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+    ul
+      li
+        .right-arrow
+        div
+          a(target='_blank' rel='noopener' href='http://localhost:3000/uploader') Загрузчик файлів
+      li
+        .right-arrow
+        div
+          a(target='_blank' rel='noopener' href='http://localhost:3000/uploadlist') Список загружених файлів
+
